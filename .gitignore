@@ -1,0 +1,8 @@
+node_modules
+npm-debug.log
+tmp
+*.iml
+*.ipr
+*.bak
+.idea
+.check_timestamp
