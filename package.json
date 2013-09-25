@@ -1,0 +1,25 @@
+{
+    "name": "grunt-update-prompt",
+    "version": "0.0.1",
+    "description": "Get the UPDATE for a particular npm module, and notify your user.",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/neekey/grunt-update-prompt.git"
+    },
+    "bugs": {
+        "url": "http://github.com/neekey/grunt-update-prompt/issues/new"
+    },
+    "keywords": [
+        "gruntplugin"
+    ],
+    "contributors": [
+        {
+            "name": "yinruo",
+            "email": "yinruo.nyj@taobao.com"
+        }
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "npm": "~1.3.11"
+    }
+}
