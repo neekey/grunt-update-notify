@@ -2,6 +2,9 @@
 
 Get the UPDATE for a particular npm module, and notify your user.
 
+![2013-09-25 11 33 35](https://f.cloud.github.com/assets/499870/1205904/48c2eabc-2593-11e3-8c37-957b86c3b35f.png)
+
+
 ## How to use
 
 Add the `update_notify` in front of your task list:
