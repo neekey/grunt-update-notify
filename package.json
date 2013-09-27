@@ -1,5 +1,5 @@
 {
-    "name": "grunt-update-prompt",
+    "name": "grunt-update-notify",
     "version": "0.0.1",
     "description": "Get the UPDATE for a particular npm module, and notify your user.",
     "repository": {

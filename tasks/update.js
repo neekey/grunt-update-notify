@@ -11,7 +11,7 @@ var NPM = require( 'npm' );
 
 module.exports = function (grunt) {
 
-    grunt.registerMultiTask( 'update_prompt', 'Run Grunt task with multi-configuration.', function () {
+    grunt.registerMultiTask( 'update_notify', 'Get the UPDATE for a particular npm module, and notify your user.', function () {
 
         var done = this.async();
 
@@ -86,8 +86,23 @@ module.exports = function (grunt) {
                     }
                 });
             }
-            else if( interrupt ){
-                grunt.task.clearQueue();
+            else {
+                if( show ){
+                    show( oldV, newV, log );
+                }
+                else {
+                    console.log( '\n\033[1;32m=======================================================\033[0m\n' );
+                    console.log( '\tCURRENT：\033[1;35m' + oldV + '\033[0m，available UPDATE \033[1;32m' + newV + '\033[0m :' );
+                    console.log( '\t>>> \033[1;33mnpm update ' + moduleName + ( global ? ' -g' : '' ) + '\033[0m' );
+                    if( log ){
+                        console.log( '\n\tChangeLog\033[40;37m(' + newV + ')\033[0m：\n\t\t\033[40;37m' + log.replace( /\n/g, '\n\t\t' ) + '\033[0m' );
+                    }
+                    console.log( '\n\033[1;32m=======================================================\033[0m' );
+                }
+
+                if( interrupt ){
+                    grunt.task.clearQueue();
+                }
             }
 
             done();
@@ -238,7 +253,6 @@ module.exports = function (grunt) {
 
         isCheckTime: function( interval ){
 
-            return true;
             // Be sure that TIMESTAMP_PATH is exist.
             if( FS.existsSync( TIMESTAMP_PATH ) ){
                 var prevTimestamp = parseInt( FS.readFileSync( TIMESTAMP_PATH ).toString().replace( /\n/, '' ) );
