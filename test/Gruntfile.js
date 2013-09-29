@@ -43,5 +43,5 @@ module.exports = function (grunt) {
 
     grunt.task.loadTasks( '../tasks' );
 
-    grunt.registerTask( 'default', [ 'update_prompt'] );
+    grunt.registerTask( 'default', [ 'update_notify'] );
 };

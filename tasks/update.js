@@ -26,6 +26,11 @@ module.exports = function (grunt) {
         var append = options.append;
         var interval = options.interval;
         var block = options.block;
+        var disabled = grunt.option( 'disable-check' );
+
+        if( disabled ){
+            done();
+        }
 
         // Decide if run
         if( !block && Utils.isCheckTime(interval) ){
@@ -217,10 +222,10 @@ module.exports = function (grunt) {
          */
         getCurrentVersion: function( pkg, global, done ){
 
-            NPM.load({ "global": true }, function( err ){
+            NPM.load({ "global": global }, function( err ){
 
                 if( err ){
-                    next( err );
+                    done( err );
                 }
                 else {
                     // 给定第二个参数，组织npm输出
